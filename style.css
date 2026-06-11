@@ -1,0 +1,147 @@
+/* =========================================
+   FluxoCerto – Dashboard  |  style.css
+   ========================================= */
+
+/* ---------- Reset / Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+  background-color: #1A2235;
+  color: #ffffff;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.12); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.22); }
+
+/* ---------- Sidebar ---------- */
+#sidebar {
+  background-color: #0F1827;
+  border-right: 1px solid rgba(255,255,255,0.08);
+}
+
+/* ---------- Nav items ---------- */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.65rem 0.875rem;
+  border-radius: 0.75rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: rgba(255,255,255,0.50);
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+
+.nav-item:hover {
+  background: rgba(255,255,255,0.06);
+  color: rgba(255,255,255,0.85);
+}
+
+.nav-item--active {
+  background: rgba(59,130,246,0.18);
+  color: #60a5fa;
+  font-weight: 600;
+}
+
+.nav-item--active:hover {
+  background: rgba(59,130,246,0.25);
+  color: #93c5fd;
+}
+
+/* ---------- Balance card ---------- */
+.balance-card {
+  background: linear-gradient(135deg, #1e3a5f 0%, #243350 60%, #1a2235 100%);
+  border: 1px solid rgba(59,130,246,0.25);
+  position: relative;
+}
+
+.balance-glow {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.balance-value {
+  background: linear-gradient(90deg, #ffffff 0%, #93c5fd 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ---------- Stat cards ---------- */
+.stat-card {
+  background-color: #1E2D45;
+  border: 1px solid rgba(255,255,255,0.07);
+}
+
+/* ---------- Alert card ---------- */
+.alert-card {
+  backdrop-filter: blur(4px);
+}
+
+/* ---------- Progress bar ---------- */
+.progress-bar {
+  background: linear-gradient(90deg, #F59E0B, #FCD34D);
+  transition: width 0.6s ease;
+}
+
+/* ---------- Transaction rows ---------- */
+.transaction-row {
+  transition: background 0.15s;
+}
+
+.transaction-row:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* ---------- Badges ---------- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.badge--orange  { background: rgba(251,146, 60,0.18); color: #fb923c; }
+.badge--green   { background: rgba( 16,185,129,0.18); color: #34d399; }
+.badge--purple  { background: rgba(167,139,250,0.18); color: #a78bfa; }
+.badge--blue    { background: rgba( 96,165,250,0.18); color: #60a5fa; }
+.badge--teal    { background: rgba( 45,212,191,0.18); color: #2dd4bf; }
+
+/* ---------- Responsive tweaks ---------- */
+@media (max-width: 639px) {
+  .transaction-row {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .balance-value {
+    font-size: 2.25rem;
+  }
+}
+
+/* ---------- Focus / Accessibility ---------- */
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #3B82F6;
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .progress-bar { transition: none; }
+}
